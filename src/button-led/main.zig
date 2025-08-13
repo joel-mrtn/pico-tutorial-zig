@@ -9,6 +9,8 @@ const pin_config = rp2xxx.pins.GlobalConfiguration{
 };
 
 const pins = pin_config.pins();
+const pin_button: rp2xxx.gpio.Pin = pins.button;
+const pin_led: rp2xxx.gpio.Pin = pins.led;
 
 pub fn main() !void {
     pin_config.apply();
@@ -16,12 +18,12 @@ pub fn main() !void {
     var last_state: u1 = 1;
 
     while (true) {
-        const state = pins.button.read();
+        const state = pin_button.read();
         std.mem.doNotOptimizeAway(state);
 
         if (last_state == 0 and state != 0) {
             time.sleep_ms(40); // debounce
-            pins.led.toggle();
+            pin_led.toggle();
         }
 
         last_state = state;

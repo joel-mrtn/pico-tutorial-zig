@@ -11,12 +11,13 @@ const pin_config = rp2xxx.pins.GlobalConfiguration{
 };
 
 const pins = pin_config.pins();
+const pin_led: rp2xxx.gpio.Pin = pins.led;
 
 pub fn main() !void {
     pin_config.apply();
 
     while (true) {
-        pins.led.toggle();
+        pin_led.toggle();
         time.sleep_ms(1000);
     }
 }
