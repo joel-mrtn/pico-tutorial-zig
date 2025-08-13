@@ -1,0 +1,6 @@
+.DS_Store
+.env
+
+.zig-cache/
+zig-out/
+*.o
