@@ -6,6 +6,7 @@ const MicroBuild = microzig.MicroBuild(.{
 });
 
 const projects = [_]Project{
+    .{ .name = "blink_builtin", .source_file = "src/blink-builtin/main.zig" },
     .{ .name = "blink_pin", .source_file = "src/blink-pin/main.zig" },
     .{ .name = "button_led", .source_file = "src/button-led/main.zig" },
 };
