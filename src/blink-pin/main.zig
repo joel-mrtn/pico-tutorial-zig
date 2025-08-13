@@ -1,23 +1,17 @@
 const std = @import("std");
 const microzig = @import("microzig");
 const rp2xxx = microzig.hal;
+const gpio = rp2xxx.gpio;
 const time = rp2xxx.time;
 
-const pin_config = rp2xxx.pins.GlobalConfiguration{
-    .GPIO15 = .{
-        .name = "led",
-        .direction = .out,
-    },
-};
-
-const pins = pin_config.pins();
-const pin_led: rp2xxx.gpio.Pin = pins.led;
+const led = gpio.num(15);
 
 pub fn main() !void {
-    pin_config.apply();
+    led.set_function(.sio);
+    led.set_direction(.out);
 
     while (true) {
-        pin_led.toggle();
+        led.toggle();
         time.sleep_ms(1000);
     }
 }
