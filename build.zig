@@ -25,7 +25,6 @@ pub fn build(b: *std.Build) void {
 
     const check_step = b.step("check", "Check if foo compiles");
 
-
     for (&projects) |project| {
         const firmware = mb.add_firmware(.{
             .name = project.name,
