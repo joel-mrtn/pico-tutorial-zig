@@ -10,6 +10,7 @@ const projects = [_]Project{
     .{ .name = "blink_pin", .source_file = "src/blink-pin/main.zig" },
     .{ .name = "button_led", .source_file = "src/button-led/main.zig" },
     .{ .name = "buzzer_active", .source_file = "src/buzzer-active/main.zig" },
+    .{ .name = "buzzer_passive", .source_file = "src/buzzer-passive/main.zig" },
     .{ .name = "pwm_led", .source_file = "src/pwm-led/main.zig" },
 };
 
